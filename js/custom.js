@@ -4,8 +4,8 @@
 
 var sound = true;
 var mobile = false;
-var soundToggle = document.getElementById("sound-toggle");
-var soundIcon = document.getElementById("sound-icon");
+var soundToggles = document.querySelectorAll(".sound-toggle");
+var soundIcons = document.querySelectorAll(".sound-icon");
 var open_portfolio_button = document.getElementById("open-portfolio");
 var back_home = document.getElementById("back-home");
 var open_about_button = document.getElementById("open-about");
@@ -82,12 +82,16 @@ document.addEventListener("DOMContentLoaded", function () {
 function setSoundEnabled(enabled) {
     sound = enabled;
     document.querySelector("body").classList.toggle("sound", sound);
-    if (soundToggle) {
-        soundToggle.classList.toggle("is-muted", !sound);
-        soundToggle.setAttribute("aria-pressed", sound ? "true" : "false");
+    if (soundToggles && soundToggles.length) {
+        for (var i = 0; i < soundToggles.length; i++) {
+            soundToggles[i].classList.toggle("is-muted", !sound);
+            soundToggles[i].setAttribute("aria-pressed", sound ? "true" : "false");
+        }
     }
-    if (soundIcon) {
-        soundIcon.alt = sound ? "Sound on" : "Sound off";
+    if (soundIcons && soundIcons.length) {
+        for (var j = 0; j < soundIcons.length; j++) {
+            soundIcons[j].alt = sound ? "Sound on" : "Sound off";
+        }
     }
     var audioItems = [click, clickmobile, hover, hovermobile, hover2, hover3, paper, papermobile, paperaboutup, paperaboutupmobile, paperaboutdown, paperaboutdownmobile, skin, skinmobile];
     for (var i = 0; i < audioItems.length; i++) {
@@ -100,10 +104,12 @@ function setSoundEnabled(enabled) {
     }
 }
 
-if (soundToggle) {
-    soundToggle.addEventListener("click", function() {
-        setSoundEnabled(!sound);
-    });
+if (soundToggles && soundToggles.length) {
+    for (var k = 0; k < soundToggles.length; k++) {
+        soundToggles[k].addEventListener("click", function() {
+            setSoundEnabled(!sound);
+        });
+    }
 }
 
 /* ----------------------------------------------------------- */
