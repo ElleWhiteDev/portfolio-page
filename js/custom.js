@@ -79,18 +79,30 @@ document.addEventListener("DOMContentLoaded", function () {
 /* SOUND TOGGLE
 /* ----------------------------------------------------------- */
 
-if (soundToggle) {
-    soundToggle.addEventListener("click", function() {
-        sound = !sound;
-        document.querySelector("body").classList.toggle("sound", sound);
+function setSoundEnabled(enabled) {
+    sound = enabled;
+    document.querySelector("body").classList.toggle("sound", sound);
+    if (soundToggle) {
         soundToggle.classList.toggle("is-muted", !sound);
         soundToggle.setAttribute("aria-pressed", sound ? "true" : "false");
-        if (soundIcon) {
-            soundIcon.alt = sound ? "Sound on" : "Sound off";
+    }
+    if (soundIcon) {
+        soundIcon.alt = sound ? "Sound on" : "Sound off";
+    }
+    var audioItems = [click, clickmobile, hover, hovermobile, hover2, hover3, paper, papermobile, paperaboutup, paperaboutupmobile, paperaboutdown, paperaboutdownmobile, skin, skinmobile];
+    for (var i = 0; i < audioItems.length; i++) {
+        if (audioItems[i]) {
+            audioItems[i].muted = !sound;
         }
-        if (sound && audioCtx && audioCtx.state === "suspended") {
-            audioCtx.resume();
-        }
+    }
+    if (sound && audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume();
+    }
+}
+
+if (soundToggle) {
+    soundToggle.addEventListener("click", function() {
+        setSoundEnabled(!sound);
     });
 }
 
@@ -115,6 +127,14 @@ const paperaboutdown = new Audio("sounds/paperaboutdown.mp3");
 const paperaboutdownmobile = new Audio("sounds/mobile/paperaboutdown.mp3");
 const skin = new Audio("sounds/skin.mp3");
 const skinmobile = new Audio("sounds/mobile/skin.mp3");
+
+setSoundEnabled(sound);
+
+document.addEventListener("click", function() {
+    if (sound && audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume();
+    }
+});
 
 /* ----------------------------------------------------------- */
 /*  PLAY SOUNDS
