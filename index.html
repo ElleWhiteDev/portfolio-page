@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
       <meta property="og:image" content="https://raw.githubusercontent.com/ElleWhiteDev/portfolio-page/main/img/ellewhitedev_com.png" />
       <meta property="og:title" content="Elle White Dev" />
       <meta property="og:description" content="Backend Developer" />
@@ -102,12 +103,14 @@
          <!-- Contacts Ends -->
          <!-- Freelance Availability Starts -->
          <div class="freelance">
-            <span>Open to <span>work</span></span>
+            <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener">
+               <span>Open to <span>work</span></span>
+            </a>
          </div>
          <!-- Freelance Availability Ends -->
          <!-- Copyright Starts -->
          <div class="leftbottom">
-           <span>&copy; 2024 ellewhitedev</span>
+           <span>&copy; 2026 ellewhitedev</span>
          </div>
          <!-- Copyright Ends -->
       </div>
@@ -149,9 +152,9 @@
                <!-- Portfolio Single Item Ends -->
                <!-- Portfolio Single Item Starts -->
                <li class="item" onclick="openItem(this)">
-                  <img src="/img/warbler-preview.png" alt="">
+                  <img src="/img/lwc-preview.png" alt="">
                   <div class="title">
-                     <span>Warbler</span>
+                     <span>A Life Worth Celebrating</span>
                   </div>
                </li>
                <!-- Portfolio Single Item Ends -->
@@ -161,7 +164,9 @@
          <!-- Portfolio Grid Ends -->
          <!-- Freelance Availability Starts -->
          <div class="freelance">
-            <span>Open to <span>work</span></span>
+            <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener">
+               <span>Open to <span>work</span></span>
+            </a>
          </div>
          <!-- Freelance Availability Ends -->
       </div>
@@ -198,31 +203,35 @@
                      </div>
                   </div>
                   <div class="content">
-                     <p>  Simplify your online recipe experience! Input recipes and let Auto-Cart generate a grocery list. Choose to populate your Kroger cart directly or get the list emailed. Features user authentication, recipe storage, and seamless Kroger integration.</p>
+                     <p>Auto-Cart is a smart household grocery management platform that simplifies meal planning and shopping for families and groups. Manage multiple households, plan weekly meals with chef assignments, and get your groceries with one click to your Kroger cart.</p>
                      <ul>
                                <li>
-                                <span> User Management :</span> 
-                                <span>Secure signup/login processes, with features to update or delete accounts.</span>
+                                <span>Multi-Household Management:</span>
+                                <span>Manage separate households (family, roommates, vacation homes) with independent recipes, lists, and meal plans.</span>
                                </li>
                                <li>
-                                 <span>Kroger API Integration :</span> 
-                                 <span>Seamlessly fetches product data and populates carts with user-selected items, also utilizes OAuth2 for user authentication.</span>
+                                 <span>AI-Powered Meal Planning:</span>
+                                 <span>Plan weekly meals, assign cooking duties, and receive automated daily summaries and chef notifications.</span>
                                </li>
                                <li>
-                                 <span>Dynamic Data Handling :</span>
-                                 <span>Efficiently manages recipe ingredients using SQLAlchemy and transforms them into actionable grocery lists.</span>
+                                 <span>Smart Recipe Sharing:</span>
+                                 <span>Copy recipes between households and share via email with anyone, even non-users.</span>
                                </li>
                                <li>
-                                 <span>Robust Error Handling :</span> 
-                                 <span>Ensures stable user experience with graceful error handling during database interactions and API calls.</span>
+                                 <span>Kroger Cart Integration:</span>
+                                 <span>Send your entire grocery list directly to your Kroger cart for pickup or delivery.</span>
                                </li>
                                <li>
-                                 <span>Context Processing :</span>
-                                 <span>Provides dynamic user context for enriched user experiences on every page.</span>
+                                 <span>Intelligent Ingredient Consolidation:</span>
+                                 <span>Automatically combines and organizes ingredients across multiple recipes.</span>
                                </li>
                                <li>
-                                 <span>Tech Stack :</span>
-                                 <span>Frontend: HTML, CSS, Bootstrap | Backend: Python, Flask | Database: PostgreSQL | Hosting: Heroku | APIs: Kroger APIs (Auth, Product, Cart, Location, Profile)</span>
+                                 <span>Customizable Notifications:</span>
+                                 <span>Control email preferences per household for meal plan updates and chef assignments.</span>
+                               </li>
+                               <li>
+                                 <span>Tech Stack:</span>
+                                 <span>Frontend: HTML, CSS, Bootstrap, JavaScript | Backend: Python, Flask | Database: PostgreSQL | Hosting: Heroku | APIs: Kroger OAuth2, Product, Cart | AI: OpenAI GPT for recipe parsing and consolidation.</span>
                         </li>
                      </ul>
                      <a href="https://auto-cart-45f50b0f2dab.herokuapp.com/" target="_blank" class="btn-secondary">
@@ -286,43 +295,43 @@
                <!-- Portfolio Single Item Details Starts -->
                <div class="details">
                   <div class="heading">
-                     <img src="/img/warbler.png" alt="">
+                     <img src="/img/lwc.png" alt="">
                      <div>
                         <div>
-                           <h2>Warbler</h2>
+                           <h2>A Life Worth Celebrating</h2>
                            <span>Web App</span>
                         </div>
                      </div>
                   </div>
                   <div class="content">
-<p>Join the Warbler community! A Twitter-inspired platform where you can register, manage profiles, post messages, and engage with other users by following and liking. Warbler offers a secure and interactive space, reminiscent of Twitter, with a fresh twist.</p>
+<p>Welcome to the LWC platform! A modern web application designed for seamless event management, newsletter distribution, and community engagement. LWC empowers users to manage content, events, and communications efficiently, all within a secure and intuitive environment.</p>
 <ul>
     <li>
         <span>User Experience:</span>
-        <span>Smooth user registration, profile management, and the ability to post, like, and follow messages in real-time.</span>
+        <span>Effortless user authentication, content management, and event coordination, with a responsive interface for both admins and members.</span>
     </li>
     <li>
         <span>Backend Operations:</span>
-        <span>Employs SQLAlchemy for efficient data handling with a PostgreSQL database, ensuring rapid and seamless message posts and retrievals.</span>
+        <span>Built with Node.js and Express, leveraging robust RESTful APIs and efficient data handling for real-time updates and smooth interactions.</span>
     </li>
     <li>
         <span>Password Security:</span>
-        <span>Utilizes bcrypt for hashing passwords, ensuring user data remains confidential and secure.</span>
+        <span>Implements secure authentication and password management to ensure user data privacy and protection.</span>
     </li>
     <li>
         <span>User Authorization:</span>
-        <span>Well-integrated user authentication and authorization mechanisms to protect user data and interactions.</span>
+        <span>Comprehensive access control and middleware to safeguard sensitive operations and maintain data integrity.</span>
     </li>
     <li>
         <span>Enhanced Usability:</span>
-        <span>Custom error handling and caching strategies are employed to optimize the platform's performance and provide an uninterrupted user experience.</span>
+        <span>Features custom error handling, optimized asset delivery, and a streamlined admin dashboard for an uninterrupted workflow.</span>
     </li>
     <li>
         <span>Tech Stack:</span>
-        <span>Frontend: HTML, CSS, Bootstrap | Backend: Python, Flask | Database: PostgreSQL | Hosting: Python Anywhere.</span>
+        <span>Frontend: React, Vite, CSS | Backend: Node.js, Express | Database: (your DB here) | Hosting: (your hosting here).</span>
     </li>
 </ul>
-                     <a href="https://ellewhitedev.pythonanywhere.com/" target="_blank" class="btn-secondary">
+                     <a href="https://a-life-worth-celebrating-cdbfc4980cb4.herokuapp.com/" target="_blank" class="btn-secondary">
                         <div>
                            <span> Preview </span>
                            <span> Preview </span>
