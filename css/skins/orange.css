@@ -23,7 +23,7 @@
 .about .box-stats p:before,
 .portfolio-items .details .heading > div,
 .portfolio-items .details .heading > div:before,
-.freelance > span:before,
+.freelance .status:before,
 .layers > div:first-child,
 .layers > div:nth-child(3),
 .layers > div:nth-child(5),

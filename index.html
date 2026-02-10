@@ -22,18 +22,6 @@
       <link rel="stylesheet" type="text/css" href="css/skins/orange.css">
    </head>
    <body class="dark">
-       <!-- Sound Dialog Modal Starts -->
-       <div id="soundmodal" class="soundmodal">
-         <div class="soundmodal-content">
-            <img class="sound-icon" src="img/volume-white.png" alt="">
-            <p>Allow Sound Effects ?</p>
-            <div class="buttons">
-               <span id="no" class="no">No</span>
-               <span id="yes" class="yes">Yes</span>
-            </div>
-         </div>
-       </div>
-      <!-- Sound Dialog Modal Ends -->
       <!-- Loader Starts -->
       <div class="loader-wrapper">
          <div class="loader">
@@ -60,9 +48,11 @@
          <!-- Call To Actions Starts -->
          <div class="call-to-actions">
             <!-- Open Portfolio Section Starts -->
-            <button id="open-portfolio" class="btn-primary">
-               <span class="letter-wrap">My Portfolio</span>
-            </button>
+            <div class="portfolio-cta">
+               <button id="open-portfolio" class="btn-primary">
+                  <span class="letter-wrap">My Portfolio</span>
+               </button>
+            </div>
             <!-- Open Portfolio Section Ends -->
             <!-- Open About Section Starts -->
             <a href="#" id="open-about" class="btn-secondary">
@@ -104,8 +94,14 @@
          <!-- Freelance Availability Starts -->
          <div class="freelance">
             <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener">
-               <span>Open to <span>work</span></span>
+               <span class="status">Open to <span>work</span></span>
             </a>
+            <a class="booking-link" href="https://calendar.app.google/Rx2wM8DEwiCpZ4sU7" target="_blank" rel="noopener">
+               Book a call
+            </a>
+            <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound effects" aria-pressed="true" title="Toggle sound effects">
+               <img id="sound-icon" src="img/volume-white.png" alt="Sound on">
+            </button>
          </div>
          <!-- Freelance Availability Ends -->
          <!-- Copyright Starts -->
@@ -119,17 +115,7 @@
       <div class="main-section portfolio-grid">
          <!-- Back Home Starts -->
          <div class="back-home" id="back-home">
-            <div class="squares">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-            </div>
+            <img class="home-icon" src="/img/favicon.svg" alt="Back home">
          </div>
          <!-- Back Home Ends -->
          <!-- Portfolio Grid Starts -->
@@ -144,7 +130,7 @@
             <ul class="grid">
                <!-- Portfolio Single Item Starts -->
                <li class="item" onclick="openItem(this)">
-                  <img src="/img/auto-cart-preview.png" alt="">
+                  <img src="/img/auto-cart-preview.png?v=20260210" alt="">
                   <div class="title">
                      <span>Auto Cart</span>
                   </div>
@@ -165,7 +151,10 @@
          <!-- Freelance Availability Starts -->
          <div class="freelance">
             <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener">
-               <span>Open to <span>work</span></span>
+               <span class="status">Open to <span>work</span></span>
+            </a>
+            <a class="booking-link" href="https://calendar.app.google/Rx2wM8DEwiCpZ4sU7" target="_blank" rel="noopener">
+               Book a call
             </a>
          </div>
          <!-- Freelance Availability Ends -->
@@ -194,7 +183,7 @@
                <!-- Portfolio Single Item Details Starts -->
                <div class="details">
                   <div class="heading">
-                     <img src="/img/auto-cart.png" alt="">
+                     <img src="/img/auto-cart.png?v=20260210" alt="">
                      <div>
                         <div>
                            <h2>Auto Cart</h2>

@@ -2,9 +2,10 @@
 /* DOCUMENT VARIABLES
 /* ----------------------------------------------------------- */
 
-var sound = false;
+var sound = true;
 var mobile = false;
-var soundmodal = document.getElementById("soundmodal");
+var soundToggle = document.getElementById("sound-toggle");
+var soundIcon = document.getElementById("sound-icon");
 var open_portfolio_button = document.getElementById("open-portfolio");
 var back_home = document.getElementById("back-home");
 var open_about_button = document.getElementById("open-about");
@@ -17,14 +18,7 @@ var global_index = 0;
 
 window.addEventListener("load", function() {
     document.querySelector("body").classList.add("loaded");
-    if (soundmodal) {
-        setTimeout(function() {
-            document.getElementById("soundmodal").style.display = "block";
-        }, 1000);
-    }
-    if (document.querySelector("body").classList.contains("sound-on")) {
-        sound = true;
-    }
+    document.querySelector("body").classList.add("sound");
 });
 
 /* ----------------------------------------------------------- */
@@ -82,32 +76,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ----------------------------------------------------------- */
-/* SOUND DIALOG
+/* SOUND TOGGLE
 /* ----------------------------------------------------------- */
 
-if (soundmodal) {
-    document.getElementById("no").onclick = function() {
-        sound = false;
-        document.querySelector("body").classList.remove("sound");
-        document.getElementById("soundmodal").style.display = "none";
-        soundmodal = false;
-    }
-    document.getElementById("yes").onclick = function() {
-        sound = true;
-        document.querySelector("body").classList.add("sound");
-        document.getElementById("soundmodal").style.display = "none";
-        soundmodal = false;
-    }
-    document.onkeydown = function(evt) {
-        evt = evt || window.event;
-        if (evt.keyCode === 27) {
-            sound = true;
-            document.querySelector("body").classList.add("sound");
-            document.getElementById("soundmodal").style.display = "none";
-            soundmodal = false;
+if (soundToggle) {
+    soundToggle.addEventListener("click", function() {
+        sound = !sound;
+        document.querySelector("body").classList.toggle("sound", sound);
+        soundToggle.classList.toggle("is-muted", !sound);
+        soundToggle.setAttribute("aria-pressed", sound ? "true" : "false");
+        if (soundIcon) {
+            soundIcon.alt = sound ? "Sound on" : "Sound off";
         }
-    };
-
+        if (sound && audioCtx && audioCtx.state === "suspended") {
+            audioCtx.resume();
+        }
+    });
 }
 
 /* ----------------------------------------------------------- */
