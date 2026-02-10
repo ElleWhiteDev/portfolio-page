@@ -1094,6 +1094,7 @@ body.dark {
 	flex-direction: column;
 	align-items: flex-end;
 	gap: 6px;
+	color: #fff;
 }
 
 .freelance a {
@@ -1102,6 +1103,13 @@ body.dark {
 }
 
 .freelance a:hover {
+	text-decoration: none;
+}
+
+.freelance a:visited,
+.freelance a:focus,
+.freelance a:active {
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -1432,6 +1440,7 @@ body.dark {
 	top: 30px;
 	left: 30px;
 	z-index: 11;
+	cursor: pointer;
 }
 
 .back-home .home-icon {
@@ -1443,6 +1452,7 @@ body.dark {
 	opacity: 0.95;
 	filter: drop-shadow(0 0 6px rgba(246, 152, 56, 0.75));
 	transition: transform 0.2s ease, filter 0.2s ease;
+	pointer-events: none;
 }
 
 .back-home:hover .home-icon {
