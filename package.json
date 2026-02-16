@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-page",
+  "version": "1.0.0",
+  "description": "A modern, interactive portfolio website showcasing backend development projects with **professional software architecture** and **enterprise-level design patterns**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint js/**/*.js",
+    "lint:fix": "eslint js/**/*.js --fix",
+    "format": "prettier --write \"js/**/*.js\" \"tests/**/*.js\"",
+    "format:check": "prettier --check \"js/**/*.js\" \"tests/**/*.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitest/ui": "^4.0.18",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "happy-dom": "^20.6.1",
+    "jsdom": "^28.1.0",
+    "prettier": "^3.8.1",
+    "vitest": "^4.0.18"
+  }
+}

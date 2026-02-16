@@ -4,10 +4,14 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="description" content="Elle White - Backend Developer specializing in Python, Node.js, and PostgreSQL. View my portfolio of full-stack web applications.">
+      <meta name="keywords" content="backend developer, software engineer, Python, Node.js, PostgreSQL, full-stack developer">
+      <meta name="author" content="Elle White">
       <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
       <meta property="og:image" content="https://raw.githubusercontent.com/ElleWhiteDev/portfolio-page/main/img/ellewhitedev_com.png" />
-      <meta property="og:title" content="Elle White Dev" />
-      <meta property="og:description" content="Backend Developer" />
+      <meta property="og:title" content="Elle White Dev - Backend Developer" />
+      <meta property="og:description" content="Backend Developer specializing in Python, Node.js, and PostgreSQL" />
+      <meta property="og:type" content="website" />
 
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,130 +19,126 @@
       rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Bugaki&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-      <title>ElleWhiteDev</title>
+      <title>Elle White - Backend Developer Portfolio</title>
       <!-- Main CSS File -->
-      <link rel="stylesheet" type="text/css" href="css/style.css?v=20260210">
+      <link rel="stylesheet" type="text/css" href="css/style.css?v=20260216f">
       <!-- Main Color File -->
-      <link rel="stylesheet" type="text/css" href="css/skins/orange.css?v=20260210">
+      <link rel="stylesheet" type="text/css" href="css/skins/orange.css?v=20260216f">
    </head>
    <body class="dark">
       <!-- Loader Starts -->
-      <div class="loader-wrapper">
-         <div class="loader">
-         </div>
-         <div class="loader-section section-left"></div>
-         <div class="loader-section section-right"></div>
-         </div>
+      <div class="loader-wrapper" role="status" aria-label="Loading portfolio">
+         <div class="loader" aria-hidden="true"></div>
+         <div class="loader-section section-left" aria-hidden="true"></div>
+         <div class="loader-section section-right" aria-hidden="true"></div>
+      </div>
       <!-- Loader Ends -->
       <!-- Home Section Starts -->
-      <div class="main-section home active">
+      <main class="main-section home active" id="home" role="main">
          <!-- Background shape Starts -->
-         <img src="img/shape3.png" alt="">
+         <img src="img/shape3.png" alt="Decorative background shape" aria-hidden="true">
          <!-- Background shape Ends -->
          <!-- Main Home Content Starts -->
-         <div class="home-content">
+         <header class="home-content">
             <div>
-               <span class="hello">Hello!</span>
-               <h1>I am <span>Elle</span>
-               </h1>
-               <p>Over a decade in IT, now diving into development with a passion for backend. Merging legacy skills with fresh knowledge, eager for collaboration and growth</p>
+               <span class="hello" aria-label="Greeting">Hello!</span>
+               <h1>I am <span class="accent-name">Elle</span></h1>
+               <p class="intro-text">Over a decade in IT, now diving into development with a passion for backend. Merging legacy skills with fresh knowledge, eager for collaboration and growth.</p>
             </div>
-         </div>
+         </header>
          <!-- Main Home Content Ends -->
          <!-- Call To Actions Starts -->
-         <div class="call-to-actions">
+         <nav class="call-to-actions" aria-label="Main navigation">
             <!-- Open Portfolio Section Starts -->
             <div class="portfolio-cta">
-               <button id="open-portfolio" class="btn-primary">
+               <button id="open-portfolio" class="btn-primary" aria-label="View my portfolio">
                   <span class="letter-wrap">My Portfolio</span>
                </button>
             </div>
             <!-- Open Portfolio Section Ends -->
             <!-- Open About Section Starts -->
-            <a href="#" id="open-about" class="btn-secondary">
+            <a href="#about" id="open-about" class="btn-secondary">
                <div>
                   <span> About Me </span>
                   <span> About Me </span>
                </div>
             </a>
             <!-- Open About Section Ends -->
-         </div>
+         </nav>
          <!-- Call To Actions Ends -->
          <!-- Contacts Starts -->
-         <div class="contacts">
+         <address class="contacts">
             <ul>
-               <li>+1 859.955.0841</li>
+               <li><a href="tel:+18599550841">+1 859.955.0841</a></li>
                <li><a class="contact-link" href="mailto:ellewhitedev@gmail.com">ellewhitedev@gmail.com</a></li>
                <li>Winchester, KY</li>
             </ul>
             <!-- Social Media Profiles Starts -->
-            <div class="social">
+            <nav class="social" aria-label="Social media links">
               <ul>
                  <li>
-                 </li>
-                 <li>
-                  <a href="https://www.linkedin.com/in/ellewhitedev/" target="_blank">
-                  <i class="icon-linkedin"></i>
+                  <a href="https://www.linkedin.com/in/ellewhitedev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                  <i class="icon-linkedin" aria-hidden="true"></i>
                   </a>
                </li>
                  <li>
-                    <a href="https://www.github.com/ElleWhiteDev" target="_blank">
-                    <i class="icon-github"></i>
+                    <a href="https://www.github.com/ElleWhiteDev" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <i class="icon-github" aria-hidden="true"></i>
                     </a>
                   </li>
               </ul>
-           </div>
+           </nav>
            <!-- Social Media Profiles Ends -->
-         </div>
+         </address>
          <!-- Contacts Ends -->
          <!-- Freelance Availability Starts -->
-         <div class="freelance">
-            <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener">
-               <span class="status">Open to <span>work</span></span>
+         <aside class="freelance" aria-label="Availability and controls">
+            <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener noreferrer">
+               <span class="status">Open to <span class="highlight">work</span></span>
             </a>
-            <a class="booking-link" href="https://calendar.app.google/Rx2wM8DEwiCpZ4sU7" target="_blank" rel="noopener">
+            <a class="booking-link" href="https://calendar.app.google/Rx2wM8DEwiCpZ4sU7" target="_blank" rel="noopener noreferrer">
                Book a call
             </a>
             <button class="sound-toggle" aria-label="Toggle sound effects" aria-pressed="true" title="Toggle sound effects">
                <img class="sound-icon" src="img/volume-white.png" alt="Sound on">
             </button>
-         </div>
+         </aside>
          <!-- Freelance Availability Ends -->
          <!-- Copyright Starts -->
-         <div class="leftbottom">
-           <span>&copy; 2026 ellewhitedev</span>
-         </div>
+         <footer class="leftbottom">
+           <small>&copy; 2026 Elle White. All rights reserved.</small>
+         </footer>
          <!-- Copyright Ends -->
-      </div>
+      </main>
       <!-- Home Section Ends -->
       <!-- Portfolio Section Starts -->
-      <div class="main-section portfolio-grid">
+      <section class="main-section portfolio-grid" id="portfolio" aria-label="Portfolio projects">
          <!-- Back Home Starts -->
-         <div class="back-home" id="back-home">
-            <img class="home-icon" src="/img/favicon.svg" alt="Back home">
-         </div>
+         <button class="back-home" id="back-home" aria-label="Return to home">
+            <img class="home-icon" src="/img/favicon.svg" alt="" aria-hidden="true">
+         </button>
          <!-- Back Home Ends -->
          <!-- Portfolio Grid Starts -->
          <div class="grid-container">
             <!-- Portfolio Heading Starts -->
-            <div class="heading">
+            <header class="heading">
                <h2>Portfolio</h2>
                <p>Showcasing my backend development voyage through two standout projects</p>
-            </div>
+            </header>
             <!-- Portfolio Heading Ends -->
             <!-- Portfolio Items Starts -->
             <ul class="grid">
                <!-- Portfolio Single Item Starts -->
-               <li class="item" onclick="openItem(this)">
-                  <img src="/img/auto-cart-preview.png?v=20260210" alt="">
+               <li class="item">
+                  <img src="/img/auto-cart-preview.png?v=20260210" alt="Auto Cart project preview - grocery management platform">
                   <div class="title">
                      <span>Auto Cart</span>
                   </div>
                </li>
                <!-- Portfolio Single Item Ends -->
                <!-- Portfolio Single Item Starts -->
-               <li class="item" onclick="openItem(this)">
-                  <img src="/img/lwc-preview.png" alt="">
+               <li class="item">
+                  <img src="/img/lwc-preview.png" alt="A Life Worth Celebrating project preview - event management platform">
                   <div class="title">
                      <span>A Life Worth Celebrating</span>
                   </div>
@@ -149,27 +149,27 @@
          </div>
          <!-- Portfolio Grid Ends -->
          <!-- Freelance Availability Starts -->
-         <div class="freelance">
-            <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener">
-               <span class="status">Open to <span>work</span></span>
+         <aside class="freelance" aria-label="Availability and controls">
+            <a class="resume-link" href="/img/ElleWhiteDevATS.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download resume - Open to work">
+               <span class="status">Open to <span class="highlight">work</span></span>
             </a>
-            <a class="booking-link" href="https://calendar.app.google/Rx2wM8DEwiCpZ4sU7" target="_blank" rel="noopener">
+            <a class="booking-link" href="https://calendar.app.google/Rx2wM8DEwiCpZ4sU7" target="_blank" rel="noopener noreferrer" aria-label="Schedule a call">
                Book a call
             </a>
             <button class="sound-toggle" aria-label="Toggle sound effects" aria-pressed="true" title="Toggle sound effects">
                <img class="sound-icon" src="img/volume-white.png" alt="Sound on">
             </button>
-         </div>
+         </aside>
          <!-- Freelance Availability Ends -->
-      </div>
+      </section>
       <!-- Portfolio Section Ends -->
       <!-- Portfolio Items Details Starts -->
-      <div class="portfolio-items">
+      <div class="portfolio-items" role="region" aria-label="Project details">
          <!-- Single Project Details Starts -->
-         <div class="single-project-item" id="project-1">
+         <article class="single-project-item" id="project-1" aria-labelledby="project-1-title">
             <!-- Back Portfolio Starts -->
-            <div class="back-to-portfolio" onclick="backToPorfolio()">
-               <div class="squares">
+            <button class="back-to-portfolio" aria-label="Back to portfolio grid">
+               <div class="squares" aria-hidden="true">
                   <div></div>
                   <div></div>
                   <div></div>
@@ -180,71 +180,73 @@
                   <div></div>
                   <div></div>
                </div>
-            </div>
+            </button>
             <!-- Back Portfolio Ends -->
             <div>
                <!-- Portfolio Single Item Details Starts -->
                <div class="details">
-                  <div class="heading">
-                     <img src="/img/auto-cart.png?v=20260210" alt="">
+                  <header class="heading">
+                     <img src="/img/auto-cart.png?v=20260210" alt="Auto Cart application logo">
                      <div>
                         <div>
-                           <h2>Auto Cart</h2>
-                           <span>Web App</span>
+                           <h2 id="project-1-title">Auto Cart</h2>
+                           <span class="project-type">Web App</span>
                         </div>
                      </div>
-                  </div>
+                  </header>
                   <div class="content">
-                     <p>Auto-Cart is a smart household grocery management platform that simplifies meal planning and shopping for families and groups. Manage multiple households, plan weekly meals with chef assignments, and get your groceries with one click to your Kroger cart.</p>
-                     <ul>
+                     <p class="project-description">Auto-Cart is a smart household grocery management platform that simplifies meal planning and shopping for families and groups. Manage multiple households, plan weekly meals with chef assignments, and get your groceries with one click to your Kroger cart.</p>
+                     <ul class="features-list" aria-label="Project features">
                                <li>
-                                <span>Multi-Household Management:</span>
+                                <strong>Multi-Household Management:</strong>
                                 <span>Manage separate households (family, roommates, vacation homes) with independent recipes, lists, and meal plans.</span>
                                </li>
                                <li>
-                                 <span>AI-Powered Meal Planning:</span>
+                                 <strong>AI-Powered Meal Planning:</strong>
                                  <span>Plan weekly meals, assign cooking duties, and receive automated daily summaries and chef notifications.</span>
                                </li>
                                <li>
-                                 <span>Smart Recipe Sharing:</span>
+                                 <strong>Smart Recipe Sharing:</strong>
                                  <span>Copy recipes between households and share via email with anyone, even non-users.</span>
                                </li>
                                <li>
-                                 <span>Kroger Cart Integration:</span>
+                                 <strong>Kroger Cart Integration:</strong>
                                  <span>Send your entire grocery list directly to your Kroger cart for pickup or delivery.</span>
                                </li>
                                <li>
-                                 <span>Intelligent Ingredient Consolidation:</span>
+                                 <strong>Intelligent Ingredient Consolidation:</strong>
                                  <span>Automatically combines and organizes ingredients across multiple recipes.</span>
                                </li>
                                <li>
-                                 <span>Customizable Notifications:</span>
+                                 <strong>Customizable Notifications:</strong>
                                  <span>Control email preferences per household for meal plan updates and chef assignments.</span>
                                </li>
                                <li>
-                                 <span>Tech Stack:</span>
+                                 <strong>Tech Stack:</strong>
                                  <span>Frontend: HTML, CSS, Bootstrap, JavaScript | Backend: Python, Flask | Database: PostgreSQL | Hosting: Heroku | APIs: Kroger OAuth2, Product, Cart | AI: OpenAI GPT for recipe parsing and consolidation.</span>
                         </li>
                      </ul>
-                     <a href="https://auto-cart-45f50b0f2dab.herokuapp.com/" target="_blank" class="btn-secondary">
+                     <nav class="project-links" aria-label="Project links">
+                     <a href="https://auto-cart-45f50b0f2dab.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                         <div>
-                           <span> Preview </span>
-                           <span> Preview </span>
+                           <span> Visit </span>
+                           <span> Visit </span>
                         </div>
                      </a>
-                     <a href="https://github.com/ElleWhiteDev/Auto-Cart" target="_blank" class="btn-secondary">
+                     <a href="https://github.com/ElleWhiteDev/Auto-Cart" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                         <div>
                            <span> GitHub </span>
                            <span> GitHub </span>
                         </div>
                      </a>
+                     </nav>
                   </div>
                </div>
                <!-- Portfolio Single Item Details Ends -->
                <!-- Portfolio Navigation Starts -->
                <div class="arrows">
                   <div>
-                     <div class="arrow up top-project" onclick="TopProject()">
+                     <div class="arrow up top-project">
                         <div class="arrow-inner">
                            <svg class="main-arrow" width="40" height="40" xmlns="http://www.w3.org/2000/svg" version="1.1">
                               <path d="M 15 19 L 20.5 13 L 26 19 L 23 19 L 23 25 L 18 25 L 18 19 z"></path>
@@ -256,7 +258,7 @@
                      </div>
                   </div>
                   <div>
-                     <div class="arrow down bottom-project" onclick="BottomProject()">
+                     <div class="arrow down bottom-project">
                         <div class="arrow-inner">
                            <svg class="main-arrow" width="40" height="40" xmlns="http://www.w3.org/2000/svg" version="1.1">
                               <path d="M 15 21 L 20.5 27 L 26 21 L 23 21 L 23 15 L 18 15 L 18 21 z"></path>
@@ -270,13 +272,13 @@
                </div>
                <!-- Portfolio Navigation Ends -->
             </div>
-         </div>
+         </article>
          <!-- Single Project Details Ends -->
          <!-- Single Project Details Starts -->
-         <div class="single-project-item" id="project-2">
+         <article class="single-project-item" id="project-2" aria-labelledby="project-2-title">
             <!-- Back Portfolio Starts -->
-            <div class="back-to-portfolio" onclick="backToPorfolio()">
-               <div class="squares">
+            <button class="back-to-portfolio" aria-label="Back to portfolio grid">
+               <div class="squares" aria-hidden="true">
                   <div></div>
                   <div></div>
                   <div></div>
@@ -287,67 +289,69 @@
                   <div></div>
                   <div></div>
                </div>
-            </div>
+            </button>
             <!-- Back Portfolio Ends -->
             <div>
                <!-- Portfolio Single Item Details Starts -->
                <div class="details">
-                  <div class="heading">
-                     <img src="/img/lwc.png" alt="">
+                  <header class="heading">
+                     <img src="/img/lwc.png" alt="A Life Worth Celebrating application logo">
                      <div>
                         <div>
-                           <h2>A Life Worth Celebrating</h2>
-                           <span>Web App</span>
+                           <h2 id="project-2-title">A Life Worth Celebrating</h2>
+                           <span class="project-type">Web Page</span>
                         </div>
                      </div>
-                  </div>
+                  </header>
                   <div class="content">
-<p>Welcome to the LWC platform! A modern web application designed for seamless event management, newsletter distribution, and community engagement. LWC empowers users to manage content, events, and communications efficiently, all within a secure and intuitive environment.</p>
-<ul>
+<p class="project-description">Welcome to the LWC platform! A modern web application designed for seamless event management, newsletter distribution, and community engagement. LWC empowers users to manage content, events, and communications efficiently, all within a secure and intuitive environment.</p>
+<ul class="features-list" aria-label="Project features">
     <li>
-        <span>User Experience:</span>
+        <strong>User Experience:</strong>
         <span>Effortless user authentication, content management, and event coordination, with a responsive interface for both admins and members.</span>
     </li>
     <li>
-        <span>Backend Operations:</span>
+        <strong>Backend Operations:</strong>
         <span>Built with Node.js and Express, leveraging robust RESTful APIs and efficient data handling for real-time updates and smooth interactions.</span>
     </li>
     <li>
-        <span>Password Security:</span>
+        <strong>Password Security:</strong>
         <span>Implements secure authentication and password management to ensure user data privacy and protection.</span>
     </li>
     <li>
-        <span>User Authorization:</span>
+        <strong>User Authorization:</strong>
         <span>Comprehensive access control and middleware to safeguard sensitive operations and maintain data integrity.</span>
     </li>
     <li>
-        <span>Enhanced Usability:</span>
+        <strong>Enhanced Usability:</strong>
         <span>Features custom error handling, optimized asset delivery, and a streamlined admin dashboard for an uninterrupted workflow.</span>
     </li>
     <li>
-        <span>Tech Stack:</span>
+        <strong>Tech Stack:</strong>
         <span>Frontend: React, Vite, CSS | Backend: Node.js, Express | Database: PostgreSQL | Hosting: Heroku.</span>
     </li>
 </ul>
-                     <a href="https://a-life-worth-celebrating-cdbfc4980cb4.herokuapp.com/" target="_blank" class="btn-secondary">
+                     <nav class="project-links" aria-label="Project links">
+                     <a href="https://a-life-worth-celebrating-cdbfc4980cb4.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                         <div>
-                           <span> Preview </span>
-                           <span> Preview </span>
+                           <span> Visit </span>
+                           <span> Visit </span>
                         </div>
                      </a>
-                     <a href="https://github.com/ElleWhiteDev/lwc" target="_blank" class="btn-secondary">
+                     <a href="https://github.com/ElleWhiteDev/lwc" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                         <div>
                            <span> GitHub </span>
                            <span> GitHub </span>
                         </div>
                      </a>
+                     </nav>
                   </div>
                </div>
                <!-- Portfolio Single Item Details Ends -->
                <!-- Portfolio Navigation Starts -->
                <div class="arrows">
                   <div>
-                     <div class="arrow up top-project" onclick="TopProject()">
+                     <div class="arrow up top-project">
                         <div class="arrow-inner">
                            <svg class="main-arrow" width="40" height="40" xmlns="http://www.w3.org/2000/svg" version="1.1">
                               <path d="M 15 19 L 20.5 13 L 26 19 L 23 19 L 23 25 L 18 25 L 18 19 z"></path>
@@ -359,7 +363,7 @@
                      </div>
                   </div>
                   <div>
-                     <div class="arrow down bottom-project" onclick="BottomProject()">
+                     <div class="arrow down bottom-project">
                         <div class="arrow-inner">
                            <svg class="main-arrow" width="40" height="40" xmlns="http://www.w3.org/2000/svg" version="1.1">
                               <path d="M 15 21 L 20.5 27 L 26 21 L 23 21 L 23 15 L 18 15 L 18 21 z"></path>
@@ -373,9 +377,9 @@
                </div>
                <!-- Portfolio Navigation Ends -->
             </div>
-         </div>
+         </article>
          <!-- Single Project Details Ends -->
-              </div>
+      </div>
       <!-- Portfolio Items Details Ends -->
       <!-- About Section Starts -->
       <div id="about" class="about">
@@ -477,7 +481,9 @@
          <div></div>
       </div>
       <!-- Animated Layers Ends -->
-      <!-- Template JS File -->
-      <script src="js/custom.js?v=20260210"></script>
+      <!-- Application JavaScript Modules -->
+      <script type="module" src="js/main.js?v=20260215"></script>
+      <!-- Fallback for browsers without module support -->
+      <script nomodule src="js/custom.js?v=20260210"></script>
    </body>
 </html>

@@ -1,0 +1,6 @@
+node_modules/
+*.min.js
+js/custom.js
+coverage/
+dist/
+

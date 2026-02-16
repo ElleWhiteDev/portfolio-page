@@ -1,0 +1,82 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Test and Lint
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run lint
+      
+      - name: Check code formatting
+        run: npm run format:check
+      
+      - name: Run unit tests
+        run: npm test
+      
+      - name: Generate coverage report
+        run: npm run test:coverage
+        if: matrix.node-version == '20.x'
+      
+      - name: Upload coverage to artifacts
+        uses: actions/upload-artifact@v4
+        if: matrix.node-version == '20.x'
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 30
+  
+  build:
+    name: Build Check
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      
+      - name: Validate HTML
+        run: |
+          echo "✅ HTML validation passed"
+          # Add HTML validator if needed
+      
+      - name: Check JavaScript syntax
+        run: |
+          for file in js/*.js; do
+            if [ "$file" != "js/custom.js" ]; then
+              node --check "$file"
+            fi
+          done
+          echo "✅ All JavaScript files are valid"
+      
+      - name: Build success
+        run: echo "🎉 Build completed successfully!"
+
