@@ -2,7 +2,7 @@
  * Performance Monitor Module
  * Tracks and reports application performance metrics
  * Demonstrates: Performance optimization, Metrics collection, Professional monitoring
- * 
+ *
  * @module performance-monitor
  */
 
@@ -93,7 +93,7 @@ class PerformanceMonitor {
       }
       this.metrics.get(name).push({
         duration,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       });
 
       logger.debug(`Performance measure completed: ${name} (${duration.toFixed(2)}ms)`);
@@ -153,7 +153,7 @@ class PerformanceMonitor {
       min,
       max,
       total: sum,
-      measurements
+      measurements,
     };
   }
 
@@ -185,10 +185,10 @@ class PerformanceMonitor {
     console.group('📊 Performance Report');
     metrics.forEach(metric => {
       console.log(`${metric.name}:`, {
-        'Avg': `${metric.average.toFixed(2)}ms`,
-        'Min': `${metric.min.toFixed(2)}ms`,
-        'Max': `${metric.max.toFixed(2)}ms`,
-        'Count': metric.count
+        Avg: `${metric.average.toFixed(2)}ms`,
+        Min: `${metric.min.toFixed(2)}ms`,
+        Max: `${metric.max.toFixed(2)}ms`,
+        Count: metric.count,
       });
     });
     console.groupEnd();
@@ -210,4 +210,3 @@ class PerformanceMonitor {
 
 // Export singleton instance
 export const performanceMonitor = PerformanceMonitor.getInstance();
-

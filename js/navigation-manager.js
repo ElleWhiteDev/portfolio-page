@@ -172,7 +172,10 @@ export class NavigationManager {
 
     delayExecution(CONFIG.ANIMATION.TRANSITION_DELAY, () => {
       removeClass(currentProject, CONFIG.CLASSES.ACTIVE);
-      addClass(currentProject, direction === 'bottom' ? CONFIG.CLASSES.TO_BOTTOM : CONFIG.CLASSES.TO_TOP);
+      addClass(
+        currentProject,
+        direction === 'bottom' ? CONFIG.CLASSES.TO_BOTTOM : CONFIG.CLASSES.TO_TOP
+      );
     });
 
     delayExecution(CONFIG.ANIMATION.LAYER_SWITCH_DELAY, () => {
@@ -216,9 +219,15 @@ export class NavigationManager {
    * Deactivates all projects
    */
   deactivateAllProjects() {
-    const activeProject = safeQuerySelector(`${CONFIG.SELECTORS.PORTFOLIO_ITEMS} > article.${CONFIG.CLASSES.ACTIVE}`);
-    const topProjects = document.querySelectorAll(`${CONFIG.SELECTORS.PORTFOLIO_ITEMS} > article.${CONFIG.CLASSES.TO_TOP}`);
-    const bottomProjects = document.querySelectorAll(`${CONFIG.SELECTORS.PORTFOLIO_ITEMS} > article.${CONFIG.CLASSES.TO_BOTTOM}`);
+    const activeProject = safeQuerySelector(
+      `${CONFIG.SELECTORS.PORTFOLIO_ITEMS} > article.${CONFIG.CLASSES.ACTIVE}`
+    );
+    const topProjects = document.querySelectorAll(
+      `${CONFIG.SELECTORS.PORTFOLIO_ITEMS} > article.${CONFIG.CLASSES.TO_TOP}`
+    );
+    const bottomProjects = document.querySelectorAll(
+      `${CONFIG.SELECTORS.PORTFOLIO_ITEMS} > article.${CONFIG.CLASSES.TO_BOTTOM}`
+    );
 
     removeClass(activeProject, CONFIG.CLASSES.ACTIVE);
     topProjects.forEach(project => removeClass(project, CONFIG.CLASSES.TO_TOP));

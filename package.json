@@ -2,6 +2,7 @@
   "name": "portfolio-page",
   "version": "1.0.0",
   "description": "A modern, interactive portfolio website showcasing backend development projects with **professional software architecture** and **enterprise-level design patterns**.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "vitest run",
@@ -17,9 +18,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@vitest/ui": "^4.0.18",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.4.0",
     "happy-dom": "^20.6.1",
     "jsdom": "^28.1.0",
     "prettier": "^3.8.1",

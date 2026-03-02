@@ -108,7 +108,9 @@ export class EventHandlerManager {
     });
 
     // Arrow buttons hover
-    const arrows = safeQuerySelectorAll(`${CONFIG.SELECTORS.TOP_PROJECT}, ${CONFIG.SELECTORS.BOTTOM_PROJECT}`);
+    const arrows = safeQuerySelectorAll(
+      `${CONFIG.SELECTORS.TOP_PROJECT}, ${CONFIG.SELECTORS.BOTTOM_PROJECT}`
+    );
     arrows.forEach(arrow => {
       addSafeEventListener(arrow, 'mouseenter', () => {
         this.audioManager.playHover2();
@@ -138,7 +140,7 @@ export class EventHandlerManager {
   initializeAboutHandlers() {
     const aboutButton = safeQuerySelector(CONFIG.SELECTORS.ABOUT_BUTTON);
     if (aboutButton) {
-      addSafeEventListener(aboutButton, 'click', (event) => {
+      addSafeEventListener(aboutButton, 'click', event => {
         this.uiManager.openAbout(event);
       });
     }
@@ -160,4 +162,3 @@ export class EventHandlerManager {
     });
   }
 }
-

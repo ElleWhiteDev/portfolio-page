@@ -89,4 +89,3 @@ export const CONFIG = {
     ACTIVE_LAYER: 'active-layer',
   },
 };
-

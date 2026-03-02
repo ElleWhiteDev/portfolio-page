@@ -8,26 +8,26 @@ global.AudioContext = class AudioContext {
   constructor() {
     this.state = 'running';
   }
-  
+
   createGain() {
     return {
       connect: () => {},
-      gain: { value: 1 }
+      gain: { value: 1 },
     };
   }
-  
+
   createBufferSource() {
     return {
       connect: () => {},
       start: () => {},
-      buffer: null
+      buffer: null,
     };
   }
-  
+
   decodeAudioData() {
     return Promise.resolve({});
   }
-  
+
   resume() {
     return Promise.resolve();
   }
@@ -40,7 +40,7 @@ global.performance = global.performance || {
   getEntriesByName: () => [],
   clearMarks: () => {},
   clearMeasures: () => {},
-  now: () => Date.now()
+  now: () => Date.now(),
 };
 
 // Mock localStorage
@@ -48,7 +48,7 @@ global.localStorage = {
   getItem: () => null,
   setItem: () => {},
   removeItem: () => {},
-  clear: () => {}
+  clear: () => {},
 };
 
 // Suppress console logs during tests (optional)
@@ -58,4 +58,3 @@ global.localStorage = {
 //   debug: () => {},
 //   info: () => {}
 // };
-

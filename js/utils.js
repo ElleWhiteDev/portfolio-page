@@ -76,7 +76,7 @@ export function addSafeEventListener(element, event, handler) {
  * @returns {Promise} Promise that resolves after delay
  */
 export function delayExecution(delay, callback) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       try {
         if (callback && typeof callback === 'function') {
@@ -150,4 +150,3 @@ export function removeClass(element, className) {
 export function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
-

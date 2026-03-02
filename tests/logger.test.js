@@ -10,7 +10,7 @@ describe('Logger Module', () => {
   beforeEach(() => {
     // Clear logs before each test
     logger.clear();
-    
+
     // Spy on console methods
     vi.spyOn(console, 'log').mockImplementation(() => {});
     vi.spyOn(console, 'info').mockImplementation(() => {});
@@ -30,7 +30,7 @@ describe('Logger Module', () => {
     it('should add debug log to history', () => {
       logger.debug('Test debug message');
       const logs = logger.getLogs();
-      
+
       expect(logs.length).toBe(1);
       expect(logs[0].level).toBe(LogLevel.DEBUG);
       expect(logs[0].message).toBe('Test debug message');
@@ -39,7 +39,7 @@ describe('Logger Module', () => {
     it('should include timestamp', () => {
       logger.debug('Test');
       const logs = logger.getLogs();
-      
+
       expect(logs[0].timestamp).toBeDefined();
       expect(typeof logs[0].timestamp).toBe('string');
     });
@@ -48,7 +48,7 @@ describe('Logger Module', () => {
       const data = { key: 'value' };
       logger.debug('Test', data);
       const logs = logger.getLogs();
-      
+
       expect(logs[0].data).toEqual(data);
     });
   });
@@ -57,7 +57,7 @@ describe('Logger Module', () => {
     it('should add info log to history', () => {
       logger.info('Test info message');
       const logs = logger.getLogs();
-      
+
       expect(logs.length).toBe(1);
       expect(logs[0].level).toBe(LogLevel.INFO);
       expect(logs[0].message).toBe('Test info message');
@@ -68,7 +68,7 @@ describe('Logger Module', () => {
     it('should add warning log to history', () => {
       logger.warn('Test warning message');
       const logs = logger.getLogs();
-      
+
       expect(logs.length).toBe(1);
       expect(logs[0].level).toBe(LogLevel.WARN);
       expect(logs[0].message).toBe('Test warning message');
@@ -84,7 +84,7 @@ describe('Logger Module', () => {
     it('should add error log to history', () => {
       logger.error('Test error message');
       const logs = logger.getLogs();
-      
+
       expect(logs.length).toBe(1);
       expect(logs[0].level).toBe(LogLevel.ERROR);
       expect(logs[0].message).toBe('Test error message');
@@ -94,7 +94,7 @@ describe('Logger Module', () => {
       const error = new Error('Test error');
       logger.error('Error occurred', error);
       const logs = logger.getLogs();
-      
+
       expect(logs[0].data.error).toBe('Test error');
       expect(logs[0].data.stack).toBeDefined();
     });
@@ -111,7 +111,7 @@ describe('Logger Module', () => {
       logger.info('Info');
       logger.warn('Warn');
       logger.error('Error');
-      
+
       const logs = logger.getLogs();
       expect(logs.length).toBe(4);
     });
@@ -120,7 +120,7 @@ describe('Logger Module', () => {
       logger.info('Test');
       const logs1 = logger.getLogs();
       const logs2 = logger.getLogs();
-      
+
       expect(logs1).not.toBe(logs2); // Different array instances
       expect(logs1).toEqual(logs2); // Same content
     });
@@ -153,11 +153,11 @@ describe('Logger Module', () => {
       logger.info('Test 1');
       logger.info('Test 2');
       logger.info('Test 3');
-      
+
       expect(logger.getLogs().length).toBe(3);
-      
+
       logger.clear();
-      
+
       expect(logger.getLogs().length).toBe(0);
     });
   });
@@ -168,10 +168,9 @@ describe('Logger Module', () => {
       for (let i = 0; i < 150; i++) {
         logger.info(`Log ${i}`);
       }
-      
+
       const logs = logger.getLogs();
       expect(logs.length).toBeLessThanOrEqual(100);
     });
   });
 });
-

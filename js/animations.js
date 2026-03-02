@@ -120,8 +120,8 @@ class PortfolioItem {
     this.element = element;
     this.manager = manager;
 
-    this.element.addEventListener('mouseover', (ev) => this.update(ev, 'in'));
-    this.element.addEventListener('mouseout', (ev) => this.update(ev, 'out'));
+    this.element.addEventListener('mouseover', ev => this.update(ev, 'in'));
+    this.element.addEventListener('mouseout', ev => this.update(ev, 'out'));
   }
 
   /**
@@ -136,4 +136,3 @@ class PortfolioItem {
     this.element.classList.add(`${prefix}-${direction}`);
   }
 }
-

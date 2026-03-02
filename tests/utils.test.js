@@ -3,17 +3,16 @@
  * Tests utility functions for correctness and edge cases
  */
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import {
   isMobileDevice,
   safeQuerySelector,
   safeQuerySelectorAll,
-  addSafeEventListener,
   delayExecution,
   toggleClass,
   addClass,
   removeClass,
-  randomInRange
+  randomInRange,
 } from '../js/utils.js';
 
 describe('Utils Module', () => {
@@ -51,16 +50,16 @@ describe('Utils Module', () => {
       const originalUserAgent = navigator.userAgent;
       Object.defineProperty(navigator, 'userAgent', {
         value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)',
-        configurable: true
+        configurable: true,
       });
-      
+
       const result = isMobileDevice();
       expect(result).toBe(true);
-      
+
       // Restore
       Object.defineProperty(navigator, 'userAgent', {
         value: originalUserAgent,
-        configurable: true
+        configurable: true,
       });
     });
   });
@@ -156,7 +155,7 @@ describe('Utils Module', () => {
       const element = document.querySelector('.existing');
       toggleClass(element, 'toggle-me');
       expect(element.classList.contains('toggle-me')).toBe(true);
-      
+
       toggleClass(element, 'toggle-me');
       expect(element.classList.contains('toggle-me')).toBe(false);
     });
@@ -172,9 +171,8 @@ describe('Utils Module', () => {
       await delayExecution(100);
       const end = Date.now();
       const elapsed = end - start;
-      
+
       expect(elapsed).toBeGreaterThanOrEqual(90); // Allow some margin
     });
   });
 });
-

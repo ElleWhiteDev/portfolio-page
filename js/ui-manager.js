@@ -5,7 +5,15 @@
  */
 
 import { CONFIG } from './config.js';
-import { safeQuerySelector, safeQuerySelectorAll, addSafeEventListener, delayExecution, addClass, removeClass, toggleClass } from './utils.js';
+import {
+  safeQuerySelector,
+  safeQuerySelectorAll,
+  addSafeEventListener,
+  delayExecution,
+  addClass,
+  removeClass,
+  toggleClass,
+} from './utils.js';
 
 /**
  * UIManager class for handling UI interactions
@@ -148,15 +156,16 @@ export class UIManager {
     if (!element) return;
 
     const characters = element.textContent.split('');
-    const wrappedChars = characters.map(char => `
+    const wrappedChars = characters.map(
+      char => `
       <span class="${className}__char">
         <span class="${className}__char-inner" data-letter="${char}">
           ${char}
         </span>
       </span>
-    `);
+    `
+    );
 
     element.innerHTML = `<span class="${className}__word">${wrappedChars.join('')}</span>`;
   }
 }
-

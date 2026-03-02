@@ -61,7 +61,7 @@ describe('StateManager Module', () => {
     it('should not trigger observers if value has not changed', () => {
       const callback = vi.fn();
       stateManager.subscribe('currentView', callback);
-      
+
       stateManager.set('currentView', 'home'); // Same value
       expect(callback).not.toHaveBeenCalled();
     });
@@ -71,21 +71,21 @@ describe('StateManager Module', () => {
     it('should call observer when state changes', () => {
       const callback = vi.fn();
       stateManager.subscribe('currentView', callback);
-      
+
       stateManager.set('currentView', 'portfolio');
-      
+
       expect(callback).toHaveBeenCalledWith('portfolio', 'home');
     });
 
     it('should support multiple observers for same key', () => {
       const callback1 = vi.fn();
       const callback2 = vi.fn();
-      
+
       stateManager.subscribe('currentView', callback1);
       stateManager.subscribe('currentView', callback2);
-      
+
       stateManager.set('currentView', 'portfolio');
-      
+
       expect(callback1).toHaveBeenCalled();
       expect(callback2).toHaveBeenCalled();
     });
@@ -93,12 +93,12 @@ describe('StateManager Module', () => {
     it('should return unsubscribe function', () => {
       const callback = vi.fn();
       const unsubscribe = stateManager.subscribe('currentView', callback);
-      
+
       expect(typeof unsubscribe).toBe('function');
-      
+
       unsubscribe();
       stateManager.set('currentView', 'portfolio');
-      
+
       expect(callback).not.toHaveBeenCalled();
     });
 
@@ -107,14 +107,14 @@ describe('StateManager Module', () => {
         throw new Error('Observer error');
       });
       const goodCallback = vi.fn();
-      
+
       stateManager.subscribe('currentView', errorCallback);
       stateManager.subscribe('currentView', goodCallback);
-      
+
       expect(() => {
         stateManager.set('currentView', 'portfolio');
       }).not.toThrow();
-      
+
       expect(goodCallback).toHaveBeenCalled();
     });
   });
@@ -124,9 +124,9 @@ describe('StateManager Module', () => {
       stateManager.update({
         currentView: 'portfolio',
         soundEnabled: false,
-        theme: 'light'
+        theme: 'light',
       });
-      
+
       expect(stateManager.get('currentView')).toBe('portfolio');
       expect(stateManager.get('soundEnabled')).toBe(false);
       expect(stateManager.get('theme')).toBe('light');
@@ -135,15 +135,15 @@ describe('StateManager Module', () => {
     it('should trigger observers for each updated key', () => {
       const viewCallback = vi.fn();
       const soundCallback = vi.fn();
-      
+
       stateManager.subscribe('currentView', viewCallback);
       stateManager.subscribe('soundEnabled', soundCallback);
-      
+
       stateManager.update({
         currentView: 'portfolio',
-        soundEnabled: false
+        soundEnabled: false,
       });
-      
+
       expect(viewCallback).toHaveBeenCalled();
       expect(soundCallback).toHaveBeenCalled();
     });
@@ -152,7 +152,7 @@ describe('StateManager Module', () => {
   describe('getState', () => {
     it('should return entire state object', () => {
       const state = stateManager.getState();
-      
+
       expect(state).toHaveProperty('currentView');
       expect(state).toHaveProperty('soundEnabled');
       expect(state).toHaveProperty('theme');
@@ -163,7 +163,7 @@ describe('StateManager Module', () => {
     it('should return a copy of state', () => {
       const state1 = stateManager.getState();
       const state2 = stateManager.getState();
-      
+
       expect(state1).not.toBe(state2); // Different objects
       expect(state1).toEqual(state2); // Same content
     });
@@ -174,13 +174,12 @@ describe('StateManager Module', () => {
       stateManager.set('currentView', 'portfolio');
       stateManager.set('soundEnabled', false);
       stateManager.set('theme', 'light');
-      
+
       stateManager.reset();
-      
+
       expect(stateManager.get('currentView')).toBe('home');
       expect(stateManager.get('soundEnabled')).toBe(true);
       expect(stateManager.get('theme')).toBe('dark');
     });
   });
 });
-

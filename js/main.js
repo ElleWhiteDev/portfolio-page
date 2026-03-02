@@ -13,7 +13,6 @@ import { NavigationManager } from './navigation-manager.js';
 import { UIManager } from './ui-manager.js';
 import { EventHandlerManager } from './event-handlers.js';
 import { StarAnimationManager, Portfolio3DAnimationManager } from './animations.js';
-import { CONFIG } from './config.js';
 import { logger } from './logger.js';
 import { stateManager } from './state-manager.js';
 import { performanceMonitor } from './performance-monitor.js';
@@ -108,13 +107,13 @@ class PortfolioApp {
     });
 
     // Subscribe to sound toggle
-    stateManager.subscribe('soundEnabled', (enabled) => {
+    stateManager.subscribe('soundEnabled', enabled => {
       logger.info(`Sound ${enabled ? 'enabled' : 'disabled'}`);
       this.audioManager.setEnabled(enabled);
     });
 
     // Subscribe to theme changes
-    stateManager.subscribe('theme', (newTheme) => {
+    stateManager.subscribe('theme', newTheme => {
       logger.info(`Theme changed to: ${newTheme}`);
       document.body.className = newTheme;
     });
@@ -160,7 +159,8 @@ class PortfolioApp {
       z-index: 10000;
       font-family: sans-serif;
     `;
-    errorMessage.textContent = 'An error occurred while loading the portfolio. Please refresh the page.';
+    errorMessage.textContent =
+      'An error occurred while loading the portfolio. Please refresh the page.';
     document.body.appendChild(errorMessage);
 
     // In production, you might send error to monitoring service
@@ -211,31 +211,30 @@ window.addEventListener('resize', () => {
  * Expose global functions for inline event handlers (backward compatibility)
  * These will be removed once HTML is refactored to use event listeners
  */
-window.openItem = function(element) {
+window.openItem = function (element) {
   const app = window.portfolioApp;
   if (app && app.navigationManager) {
     app.navigationManager.openPortfolioItem(element);
   }
 };
 
-window.backToPorfolio = function() {
+window.backToPorfolio = function () {
   const app = window.portfolioApp;
   if (app && app.navigationManager) {
     app.navigationManager.backToPortfolio();
   }
 };
 
-window.TopProject = function() {
+window.TopProject = function () {
   const app = window.portfolioApp;
   if (app && app.navigationManager) {
     app.navigationManager.navigateToPreviousProject();
   }
 };
 
-window.BottomProject = function() {
+window.BottomProject = function () {
   const app = window.portfolioApp;
   if (app && app.navigationManager) {
     app.navigationManager.navigateToNextProject();
   }
 };
-

@@ -3,7 +3,7 @@
  * Tests performance tracking functionality
  */
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { performanceMonitor } from '../js/performance-monitor.js';
 
 describe('PerformanceMonitor Module', () => {
@@ -24,7 +24,7 @@ describe('PerformanceMonitor Module', () => {
     it('should measure operation duration', () => {
       performanceMonitor.startMeasure('test-operation');
       performanceMonitor.endMeasure('test-operation');
-      
+
       const metrics = performanceMonitor.getMetrics('test-operation');
       expect(metrics).not.toBeNull();
       expect(metrics.count).toBe(1);
@@ -34,7 +34,7 @@ describe('PerformanceMonitor Module', () => {
     it('should return duration when ending measure', () => {
       performanceMonitor.startMeasure('test-operation');
       const duration = performanceMonitor.endMeasure('test-operation');
-      
+
       expect(typeof duration).toBe('number');
       expect(duration).toBeGreaterThanOrEqual(0);
     });
@@ -42,10 +42,10 @@ describe('PerformanceMonitor Module', () => {
     it('should handle multiple measurements of same operation', () => {
       performanceMonitor.startMeasure('test-operation');
       performanceMonitor.endMeasure('test-operation');
-      
+
       performanceMonitor.startMeasure('test-operation');
       performanceMonitor.endMeasure('test-operation');
-      
+
       const metrics = performanceMonitor.getMetrics('test-operation');
       expect(metrics.count).toBe(2);
     });
@@ -62,11 +62,11 @@ describe('PerformanceMonitor Module', () => {
         await new Promise(resolve => setTimeout(resolve, 10));
         return 'result';
       };
-      
+
       const result = await performanceMonitor.measureFunction('async-test', testFn);
-      
+
       expect(result).toBe('result');
-      
+
       const metrics = performanceMonitor.getMetrics('async-test');
       expect(metrics).not.toBeNull();
       expect(metrics.count).toBe(1);
@@ -76,11 +76,11 @@ describe('PerformanceMonitor Module', () => {
       const testFn = () => {
         return 42;
       };
-      
+
       const result = await performanceMonitor.measureFunction('sync-test', testFn);
-      
+
       expect(result).toBe(42);
-      
+
       const metrics = performanceMonitor.getMetrics('sync-test');
       expect(metrics).not.toBeNull();
     });
@@ -89,11 +89,11 @@ describe('PerformanceMonitor Module', () => {
       const errorFn = () => {
         throw new Error('Test error');
       };
-      
-      await expect(
-        performanceMonitor.measureFunction('error-test', errorFn)
-      ).rejects.toThrow('Test error');
-      
+
+      await expect(performanceMonitor.measureFunction('error-test', errorFn)).rejects.toThrow(
+        'Test error'
+      );
+
       // Should still record the measurement
       const metrics = performanceMonitor.getMetrics('error-test');
       expect(metrics).not.toBeNull();
@@ -112,7 +112,7 @@ describe('PerformanceMonitor Module', () => {
 
     it('should return metrics summary', () => {
       const metrics = performanceMonitor.getMetrics('test-op');
-      
+
       expect(metrics).toHaveProperty('name');
       expect(metrics).toHaveProperty('count');
       expect(metrics).toHaveProperty('average');
@@ -124,7 +124,7 @@ describe('PerformanceMonitor Module', () => {
 
     it('should calculate correct statistics', () => {
       const metrics = performanceMonitor.getMetrics('test-op');
-      
+
       expect(metrics.count).toBe(3);
       expect(metrics.average).toBeGreaterThanOrEqual(0);
       expect(metrics.min).toBeLessThanOrEqual(metrics.max);
@@ -141,14 +141,14 @@ describe('PerformanceMonitor Module', () => {
     beforeEach(() => {
       performanceMonitor.startMeasure('op1');
       performanceMonitor.endMeasure('op1');
-      
+
       performanceMonitor.startMeasure('op2');
       performanceMonitor.endMeasure('op2');
     });
 
     it('should return all metrics', () => {
       const allMetrics = performanceMonitor.getAllMetrics();
-      
+
       expect(Array.isArray(allMetrics)).toBe(true);
       expect(allMetrics.length).toBe(2);
     });
@@ -156,7 +156,7 @@ describe('PerformanceMonitor Module', () => {
     it('should return empty array when no metrics', () => {
       performanceMonitor.clear();
       const allMetrics = performanceMonitor.getAllMetrics();
-      
+
       expect(Array.isArray(allMetrics)).toBe(true);
       expect(allMetrics.length).toBe(0);
     });
@@ -166,7 +166,7 @@ describe('PerformanceMonitor Module', () => {
     it('should not throw when logging report', () => {
       performanceMonitor.startMeasure('test');
       performanceMonitor.endMeasure('test');
-      
+
       expect(() => {
         performanceMonitor.logReport();
       }).not.toThrow();
@@ -183,13 +183,12 @@ describe('PerformanceMonitor Module', () => {
     it('should clear all metrics', () => {
       performanceMonitor.startMeasure('test');
       performanceMonitor.endMeasure('test');
-      
+
       expect(performanceMonitor.getAllMetrics().length).toBe(1);
-      
+
       performanceMonitor.clear();
-      
+
       expect(performanceMonitor.getAllMetrics().length).toBe(0);
     });
   });
 });
-

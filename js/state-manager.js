@@ -2,7 +2,7 @@
  * State Manager Module
  * Centralized state management with observer pattern
  * Demonstrates: State management, Observer pattern, Event-driven architecture
- * 
+ *
  * @module state-manager
  */
 
@@ -36,8 +36,8 @@ class StateManager {
       isLoading: true,
       animations: {
         starsActive: false,
-        portfolio3DActive: false
-      }
+        portfolio3DActive: false,
+      },
     };
 
     // Observers for state changes
@@ -175,8 +175,8 @@ class StateManager {
       isLoading: false,
       animations: {
         starsActive: false,
-        portfolio3DActive: false
-      }
+        portfolio3DActive: false,
+      },
     };
     logger.info('State reset', { oldState, newState: this.state });
   }
@@ -184,4 +184,3 @@ class StateManager {
 
 // Export singleton instance
 export const stateManager = StateManager.getInstance();
-

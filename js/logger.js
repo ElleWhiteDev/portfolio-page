@@ -2,7 +2,7 @@
  * Logger Module
  * Provides centralized logging with different severity levels
  * Demonstrates: Singleton pattern, professional error tracking
- * 
+ *
  * @module logger
  */
 
@@ -14,7 +14,7 @@ const LogLevel = {
   DEBUG: 'DEBUG',
   INFO: 'INFO',
   WARN: 'WARN',
-  ERROR: 'ERROR'
+  ERROR: 'ERROR',
 };
 
 /**
@@ -35,12 +35,12 @@ class Logger {
     if (Logger.instance) {
       return Logger.instance;
     }
-    
+
     this.logs = [];
     this.maxLogs = 100; // Keep last 100 logs in memory
-    this.isDevelopment = window.location.hostname === 'localhost' || 
-                         window.location.hostname === '127.0.0.1';
-    
+    this.isDevelopment =
+      window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
     Logger.instance = this;
   }
 
@@ -69,7 +69,7 @@ class Logger {
       level,
       message,
       data,
-      url: window.location.href
+      url: window.location.href,
     };
   }
 
@@ -80,7 +80,7 @@ class Logger {
    */
   addToHistory(logEntry) {
     this.logs.push(logEntry);
-    
+
     // Keep only last maxLogs entries
     if (this.logs.length > this.maxLogs) {
       this.logs.shift();
@@ -95,7 +95,7 @@ class Logger {
   debug(message, data = null) {
     const logEntry = this.formatLog(LogLevel.DEBUG, message, data);
     this.addToHistory(logEntry);
-    
+
     if (this.isDevelopment) {
       console.log(`[${logEntry.timestamp}] 🔍 ${message}`, data || '');
     }
@@ -109,7 +109,7 @@ class Logger {
   info(message, data = null) {
     const logEntry = this.formatLog(LogLevel.INFO, message, data);
     this.addToHistory(logEntry);
-    
+
     if (this.isDevelopment) {
       console.info(`[${logEntry.timestamp}] ℹ️ ${message}`, data || '');
     }
@@ -123,7 +123,7 @@ class Logger {
   warn(message, data = null) {
     const logEntry = this.formatLog(LogLevel.WARN, message, data);
     this.addToHistory(logEntry);
-    
+
     console.warn(`[${logEntry.timestamp}] ⚠️ ${message}`, data || '');
   }
 
@@ -135,10 +135,10 @@ class Logger {
   error(message, error = null) {
     const logEntry = this.formatLog(LogLevel.ERROR, message, {
       error: error?.message || error,
-      stack: error?.stack
+      stack: error?.stack,
     });
     this.addToHistory(logEntry);
-    
+
     console.error(`[${logEntry.timestamp}] ❌ ${message}`, error || '');
   }
 
@@ -173,4 +173,3 @@ class Logger {
 // Export singleton instance
 export const logger = Logger.getInstance();
 export { LogLevel };
-
