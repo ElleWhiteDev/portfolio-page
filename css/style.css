@@ -2264,6 +2264,16 @@ body.dark {
 
 .about .facts {
 	display: flex;
+	flex-wrap: wrap;
+}
+
+.about .facts .facts-label {
+	width: 100%;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #999;
+	margin: 0 0 14px;
 }
 
 .about .facts .box-stats:not(:last-child) {

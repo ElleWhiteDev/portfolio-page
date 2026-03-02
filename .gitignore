@@ -12,6 +12,7 @@ coverage/
 *.swp
 *.swo
 *~
+.augment
 
 # OS
 .DS_Store
@@ -27,4 +28,3 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
-
