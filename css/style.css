@@ -2151,14 +2151,14 @@ body.dark {
 	background-color: #fff;
 	z-index: 2;
 	width: 100%;
-	height: 470px;
+	height: 520px;
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	padding: 30px;
 	display: flex;
 	align-items: center;
-	transform: translateY(500px);
+	transform: translateY(560px);
 	transition: 1s cubic-bezier(0.68, -0.55, 0.25, 0.99);
 }
 
@@ -2284,7 +2284,7 @@ body.dark {
 	padding: 20px 60px 20px 30px;
 	background-color: #f4f4f4;
 	display: inline-block;
-	width: 33.3333333%;
+	width: calc(50% - 15px);
 	border-radius: 20px;
 }
 
@@ -2570,7 +2570,7 @@ body.dark {
 	}
 
 	.about .content {
-		height: 420px;
+		height: 470px;
 	}
 }
 
