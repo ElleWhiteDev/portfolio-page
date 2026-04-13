@@ -142,10 +142,6 @@ export class AudioManager {
    */
   playHover3() {
     if (this.isMobile) return;
-    const sound = this.sounds.HOVER3;
-    if (sound) {
-      sound.currentTime = 0;
-    }
     return this.playSound('HOVER3');
   }
 
@@ -173,11 +169,4 @@ export class AudioManager {
     return this.playSound(soundKey);
   }
 
-  /**
-   * Plays skin change sound (mobile-aware)
-   */
-  playSkin() {
-    const soundKey = this.isMobile ? 'SKIN_MOBILE' : 'SKIN';
-    return this.playSound(soundKey);
-  }
 }

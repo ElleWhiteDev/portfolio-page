@@ -71,9 +71,7 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           for file in js/*.js; do
-            if [ "$file" != "js/custom.js" ]; then
-              node --check "$file"
-            fi
+            node --check "$file"
           done
           echo "✅ All JavaScript files are valid"
       

@@ -46,8 +46,6 @@ export const CONFIG = {
     PAPER_ABOUT_UP_MOBILE: 'sounds/mobile/paperaboutup.mp3',
     PAPER_ABOUT_DOWN: 'sounds/paperaboutdown.mp3',
     PAPER_ABOUT_DOWN_MOBILE: 'sounds/mobile/paperaboutdown.mp3',
-    SKIN: 'sounds/skin.mp3',
-    SKIN_MOBILE: 'sounds/mobile/skin.mp3',
   },
 
   // CSS selectors
@@ -71,8 +69,6 @@ export const CONFIG = {
     OVERLAY: '#overlay',
     CONTENT: '#content',
     CONTENT_CONTAINER: '#contentcontainer',
-    CHECKBOX: '#checkbox',
-    CHECKBOX2: '#checkbox2',
   },
 
   // CSS classes

@@ -154,11 +154,13 @@ export class EventHandlerManager {
   }
 
   /**
-   * Initializes audio context resume on user interaction
+   * Resumes the audio context on the first user interaction, then removes itself
    */
   initializeAudioContextResume() {
-    document.addEventListener('click', () => {
+    const resumeOnce = () => {
       this.audioManager.resumeAudioContext();
-    });
+      document.removeEventListener('click', resumeOnce);
+    };
+    document.addEventListener('click', resumeOnce);
   }
 }

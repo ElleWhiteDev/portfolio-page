@@ -62,28 +62,6 @@ export class UIManager {
   }
 
   /**
-   * Initializes theme switcher
-   */
-  initializeThemeSwitcher() {
-    const checkbox = safeQuerySelector(CONFIG.SELECTORS.CHECKBOX);
-    const checkbox2 = safeQuerySelector(CONFIG.SELECTORS.CHECKBOX2);
-
-    if (!checkbox || !checkbox2) return;
-
-    addSafeEventListener(checkbox, 'change', () => {
-      this.audioManager.playSkin();
-      toggleClass(document.body, CONFIG.CLASSES.DARK);
-      checkbox2.checked = !checkbox2.checked;
-    });
-
-    addSafeEventListener(checkbox2, 'change', () => {
-      this.audioManager.playSkin();
-      toggleClass(document.body, CONFIG.CLASSES.DARK);
-      checkbox.checked = !checkbox.checked;
-    });
-  }
-
-  /**
    * Opens the about section
    */
   openAbout(event) {
@@ -119,9 +97,6 @@ export class UIManager {
 
     delayExecution(CONFIG.ANIMATION.ABOUT_CLOSE_DELAY, () => {
       this.audioManager.playPaperAboutDown();
-    });
-
-    delayExecution(CONFIG.ANIMATION.ABOUT_CLOSE_DELAY, () => {
       removeClass(overlay, CONFIG.CLASSES.ACTIVE);
     });
 
@@ -130,10 +105,7 @@ export class UIManager {
     });
 
     delayExecution(CONFIG.ANIMATION.ABOUT_SCROLL_DELAY, () => {
-      const container = document.querySelector('.content-container');
-      if (container) {
-        container.scrollTop = 0;
-      }
+      if (contentContainer) contentContainer.scrollTop = 0;
     });
   }
 

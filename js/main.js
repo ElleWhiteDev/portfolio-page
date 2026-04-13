@@ -82,7 +82,6 @@ class PortfolioApp {
     logger.debug('Setting up UI components');
     this.uiManager.initializeLoader();
     this.uiManager.initializeSoundToggle();
-    this.uiManager.initializeThemeSwitcher();
     this.initializePortfolioButton();
   }
 
@@ -145,7 +144,6 @@ class PortfolioApp {
   handleInitializationError(error) {
     logger.error('Critical initialization error', error);
 
-    // Display user-friendly error message
     const errorMessage = document.createElement('div');
     errorMessage.style.cssText = `
       position: fixed;
@@ -163,13 +161,7 @@ class PortfolioApp {
       'An error occurred while loading the portfolio. Please refresh the page.';
     document.body.appendChild(errorMessage);
 
-    // In production, you might send error to monitoring service
-    // this.sendErrorToMonitoring(error);
-
-    // Auto-remove after 5 seconds
-    setTimeout(() => {
-      errorMessage.remove();
-    }, 5000);
+    setTimeout(() => errorMessage.remove(), 5000);
   }
 }
 
@@ -181,9 +173,14 @@ document.addEventListener('DOMContentLoaded', () => {
   app.initialize();
 
   // Initialize star animations after a short delay
-  setTimeout(() => {
-    app.starAnimationManager.initialize();
-  }, 500);
+  setTimeout(() => app.starAnimationManager.initialize(), 500);
+
+  // Reinitialize 3D animations on resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => app.portfolio3DAnimationManager.initialize(), 250);
+  });
 
   // Make app instance globally available for debugging (development only)
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
@@ -191,50 +188,3 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Development mode: portfolioApp available in console');
   }
 });
-
-/**
- * Handle window resize events
- */
-let resizeTimeout;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-    // Reinitialize 3D animations on resize
-    const app = window.portfolioApp;
-    if (app && app.portfolio3DAnimationManager) {
-      app.portfolio3DAnimationManager.initialize();
-    }
-  }, 250);
-});
-
-/**
- * Expose global functions for inline event handlers (backward compatibility)
- * These will be removed once HTML is refactored to use event listeners
- */
-window.openItem = function (element) {
-  const app = window.portfolioApp;
-  if (app && app.navigationManager) {
-    app.navigationManager.openPortfolioItem(element);
-  }
-};
-
-window.backToPorfolio = function () {
-  const app = window.portfolioApp;
-  if (app && app.navigationManager) {
-    app.navigationManager.backToPortfolio();
-  }
-};
-
-window.TopProject = function () {
-  const app = window.portfolioApp;
-  if (app && app.navigationManager) {
-    app.navigationManager.navigateToPreviousProject();
-  }
-};
-
-window.BottomProject = function () {
-  const app = window.portfolioApp;
-  if (app && app.navigationManager) {
-    app.navigationManager.navigateToNextProject();
-  }
-};
